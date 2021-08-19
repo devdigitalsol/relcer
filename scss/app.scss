@@ -1,6 +1,7 @@
 $raleway: "Raleway", sans-serif;
 $maroon: #660000;
 $green: #0a6800;
+$blue: #064075;
 * {
   margin: 0;
   padding: 0;
@@ -282,6 +283,9 @@ body {
   text-align: center;
   margin-top: 0.5rem;
   width: 49%;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   &:last-child {
     margin: 0.5rem auto 0 auto;
   }
@@ -315,4 +319,42 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+.scoreContainer {
+  position: absolute;
+  right: 24px;
+  top: 48px;
+  z-index: 1;
+  span {
+    position: absolute;
+    font-family: $raleway;
+    text-align: center;
+    color: $blue;
+    font-weight: 900;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  img {
+    display: block;
+  }
+}
+.timerContainer {
+  position: absolute;
+  left: 24px;
+  top: 48px;
+  z-index: 1;
+  span {
+    position: absolute;
+    font-family: $raleway;
+    text-align: center;
+    color: $blue;
+    font-weight: 900;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  img {
+    display: block;
+  }
 }
