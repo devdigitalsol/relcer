@@ -225,6 +225,9 @@ body {
   }
 }
 @media only screen and (max-width: 360px) {
+  .screen-2 {
+    padding: 0;
+  }
   .gameScreen {
     transform: scale(1);
   }
