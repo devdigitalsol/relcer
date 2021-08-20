@@ -69,12 +69,11 @@ window.addEventListener("load", (event) => {
 
 playBtn.addEventListener("click", () => {
   document.querySelector(".revealBlock").classList.add("show");
+  startQuiz();
   setTimeout(() => {
     screen1.classList.remove("active");
     screen2.classList.add("active");
-    mytimer();
   }, 200);
-  cover.classList.add("active");
 });
 const yellowPatch = document.getElementById("yellowPatch");
 
@@ -82,11 +81,12 @@ function mytimer() {
   let count = 60;
   timer = setInterval(function () {
     document.getElementById("timerCount").textContent = count--;
-    if (count == 1) clearInterval(timer);
+    if (count < 0) clearInterval(timer);
   }, 1000);
 }
 
 function startQuiz() {
+  mytimer();
   let newQuestion;
   function quiz() {
     scoreCount.textContent = `${score}/${mydata.length}`;
@@ -107,6 +107,9 @@ function startQuiz() {
     }
     document.querySelectorAll(".option").forEach((item) => {
       item.addEventListener("click", () => {
+        if (currentQuestion === 0) {
+          cover.classList.add("active");
+        }
         if (currentQuestion <= mydata.length - 1) {
           if (
             item.getAttribute("data-option") === mydata[currentQuestion].correct
@@ -127,4 +130,3 @@ function startQuiz() {
   }
   quiz();
 }
-startQuiz();

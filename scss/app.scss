@@ -106,6 +106,22 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 1rem;
+    top: 0;
+    img {
+      width: 6rem;
+    }
+    margin-bottom: 2rem;
+  }
 }
 .old,
 .new {
@@ -216,7 +232,6 @@ body {
   &.active {
     animation: coverRemove 0.8s forwards;
     transform-origin: 11px center;
-    animation-delay: 2s;
   }
 }
 
@@ -356,5 +371,79 @@ body {
   }
   img {
     display: block;
+  }
+}
+
+.stomachContainer {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+  width: 73%;
+  transform: translateX(14%);
+  img.stomachImg {
+    display: block;
+    width: 100%;
+  }
+}
+
+.flame1 {
+  width: 48px;
+  height: 44px;
+  background: url("../images/flame1sprite.png?v2");
+  animation-duration: 0.4s;
+  right: 17%;
+  bottom: 58%;
+}
+.flame2 {
+  width: 31px;
+  height: 40px;
+  background: url("../images/flame2sprite.png?v2");
+  animation-duration: 0.4s;
+  animation-delay: 0.1s;
+  right: 29%;
+  bottom: 37%;
+}
+.flame3 {
+  width: 32px;
+  height: 39px;
+  background: url("../images/flame3sprite.png?v2");
+  animation-duration: 0.3s;
+  animation-delay: 0.1s;
+  right: 8%;
+  bottom: 41%;
+}
+.flame4 {
+  width: 31px;
+  height: 37px;
+  background: url("../images/flame4sprite.png?v2");
+  animation-duration: 0.5s;
+  animation-delay: 0.1s;
+  right: 38%;
+  bottom: 19%;
+}
+.flame5 {
+  width: 34px;
+  height: 35px;
+  background: url("../images/flame5sprite.png?v2");
+  animation-duration: 0.3s;
+  animation-delay: 0.2s;
+  right: 18%;
+  bottom: 22%;
+}
+
+.flame {
+  position: absolute;
+  animation-name: flame;
+  animation-timing-function: steps(2);
+  animation-iteration-count: infinite;
+  background-size: cover;
+  background-position: 0 0;
+}
+@keyframes flame {
+  to {
+    background-position: -200% 0;
   }
 }
