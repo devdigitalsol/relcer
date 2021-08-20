@@ -74,7 +74,8 @@ body {
     }
   }
   .redScreen {
-    width: 90%;
+    width: 340px;
+    max-width: 90%;
     margin: 0 auto;
     position: relative;
     margin-bottom: 8rem;
@@ -199,7 +200,8 @@ body {
   }
 }
 .gameScreen {
-  width: 100%;
+  // width: 100%;
+  width: 340px;
   position: relative;
   .innerBgContent {
     position: absolute;
@@ -449,27 +451,27 @@ body {
 }
 .tab1 {
   &.remove {
-    animation: removeTab1 2s forwards;
+    animation: removeTab1 0.7s forwards;
   }
 }
 .tab2 {
   &.remove {
-    animation: removeTab2 2s forwards;
+    animation: removeTab2 0.7s forwards;
   }
 }
 .tab3 {
   &.remove {
-    animation: removeTab3 2s forwards;
+    animation: removeTab3 0.7s forwards;
   }
 }
 .tab4 {
   &.remove {
-    animation: removeTab4 2s forwards;
+    animation: removeTab4 0.7s forwards;
   }
 }
 .tab5 {
   &.remove {
-    animation: removeTab5 2s forwards;
+    animation: removeTab5 0.7s forwards;
   }
 }
 @keyframes removeTab1 {
@@ -479,7 +481,7 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translate(80px, 30px);
+    transform: translate(70px, 30px);
   }
 }
 @keyframes removeTab2 {
@@ -519,6 +521,6 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translate(88px, 14px);
+    transform: translate(88px, 8px);
   }
 }
