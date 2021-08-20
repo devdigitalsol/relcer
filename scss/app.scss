@@ -204,6 +204,7 @@ body {
   width: 340px;
   position: relative;
   margin: 0 auto;
+  transform: scale(1.1);
   .innerBgContent {
     position: absolute;
     margin: 0 auto;
@@ -221,6 +222,11 @@ body {
   img.redBg2 {
     width: 100%;
     display: block;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .gameScreen {
+    transform: scale(1);
   }
 }
 .fullBottle {
