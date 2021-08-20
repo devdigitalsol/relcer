@@ -447,3 +447,78 @@ body {
     background-position: -200% 0;
   }
 }
+.tab1 {
+  &.remove {
+    animation: removeTab1 2s forwards;
+  }
+}
+.tab2 {
+  &.remove {
+    animation: removeTab2 2s forwards;
+  }
+}
+.tab3 {
+  &.remove {
+    animation: removeTab3 2s forwards;
+  }
+}
+.tab4 {
+  &.remove {
+    animation: removeTab4 2s forwards;
+  }
+}
+.tab5 {
+  &.remove {
+    animation: removeTab5 2s forwards;
+  }
+}
+@keyframes removeTab1 {
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(80px, 30px);
+  }
+}
+@keyframes removeTab2 {
+  0% {
+    opacity: 1;
+    transform: translateX(0px, 0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(60px, 45px);
+  }
+}
+@keyframes removeTab3 {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(80px, 40px);
+  }
+}
+@keyframes removeTab4 {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(78px, 60px);
+  }
+}
+@keyframes removeTab5 {
+  0% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(88px, 14px);
+  }
+}

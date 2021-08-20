@@ -8,6 +8,7 @@ const scoreCount = document.querySelector("#scoreCount");
 const playBtn = document.getElementById("playBtn");
 let currentQuestion = 0;
 let score = 0;
+let correct = false;
 const mydata = [
   {
     id: 0,
@@ -107,9 +108,6 @@ function startQuiz() {
     }
     document.querySelectorAll(".option").forEach((item) => {
       item.addEventListener("click", () => {
-        if (currentQuestion === 0) {
-          cover.classList.add("active");
-        }
         if (currentQuestion <= mydata.length - 1) {
           if (
             item.getAttribute("data-option") === mydata[currentQuestion].correct
@@ -117,6 +115,7 @@ function startQuiz() {
             score = score + 1;
             console.log("correct ans");
             scoreCount.textContent = `${score}/${mydata.length}`;
+            correct = true;
           } else {
             console.log("wrong ans");
             scoreCount.textContent = `${score}/${mydata.length}`;
@@ -125,8 +124,26 @@ function startQuiz() {
           console.log(score, currentQuestion);
           quiz();
         }
+        checkCorrect();
       });
     });
   }
   quiz();
+}
+function checkCorrect() {
+  if (correct) {
+    cover.classList.add("active");
+    if (currentQuestion === 1) {
+      document.querySelector(".tab1").classList.add("remove");
+    } else if (currentQuestion === 2) {
+      document.querySelector(".tab2").classList.add("remove");
+    } else if (currentQuestion === 3) {
+      document.querySelector(".tab3").classList.add("remove");
+    } else if (currentQuestion === 4) {
+      document.querySelector(".tab4").classList.add("remove");
+    } else if (currentQuestion === 5) {
+      document.querySelector(".tab5").classList.add("remove");
+    }
+    // alert();
+  }
 }
