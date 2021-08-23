@@ -1,4 +1,21 @@
 window.onload = function () {
+  const loader = document.querySelector(".loader");
+  let docimgs = document.images,
+    len = docimgs.length,
+    counter = 0;
+
+  [].forEach.call(docimgs, function (img) {
+    if (img.complete) incrementCounter();
+    else img.addEventListener("load", incrementCounter, false);
+  });
+
+  function incrementCounter() {
+    counter++;
+    if (counter === len) {
+      loader.remove();
+      console.log("All images loaded!");
+    }
+  }
   let imgs = [];
   let imgUrls = [
     "images/gif-screens/initial-stage.gif",
@@ -19,6 +36,7 @@ window.onload = function () {
     imgs.push(new Image());
     imgs[i].src = imgUrls[i];
   }
+
   const replaybtn = document.getElementById("replaybtn");
   replaybtn.addEventListener("click", () => {
     location.reload();
@@ -26,7 +44,7 @@ window.onload = function () {
   const questionContainer = document.querySelector("#questionContainer");
   const questionCount = document.querySelector("#questionCount");
   const gifScreen = document.querySelector(".gifScreen");
-  const loader = document.querySelector(".loader");
+
   const screen1 = document.querySelector(".screen-1");
   const screen2 = document.querySelector(".screen-2");
   const screen3 = document.querySelector(".screen-3");
@@ -83,7 +101,6 @@ window.onload = function () {
     },
   ];
 
-  loader.remove();
   screen1.classList.add("active");
   setTimeout(() => {
     document.querySelectorAll(".old").forEach((item) => {
