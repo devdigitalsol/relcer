@@ -9,6 +9,9 @@ window.onload = function () {
     "images/gif-screens/correct5.gif",
   ];
 
+  var tiktok = new Audio("sound/tiktok.wav");
+  tiktok.loop = true;
+
   for (let i = 0; i < imgUrls.length; i++) {
     imgs.push(new Image());
     imgs[i].src = imgUrls[i];
@@ -20,6 +23,7 @@ window.onload = function () {
   const screen1 = document.querySelector(".screen-1");
   const screen2 = document.querySelector(".screen-2");
   const cover = document.querySelector(".cover");
+  let timebgpos = 0;
   // const quiz = document.querySelector(".quiz");
   const quizOptions = document.querySelector(".quizOptions");
   const scoreCount = document.querySelector("#scoreCount");
@@ -96,9 +100,17 @@ window.onload = function () {
   const yellowPatch = document.getElementById("yellowPatch");
 
   function mytimer() {
+    tiktok.play();
     let count = 60;
+    let sec = 0;
     timer = setInterval(function () {
+      sec = sec + 1;
       document.getElementById("timerCount").textContent = count--;
+      if (sec % 5 === 0) {
+        timebgpos = timebgpos + 29;
+        document.getElementById("timerCount").style.backgroundPositionX =
+          -timebgpos + "px";
+      }
       if (count < 0) clearInterval(timer);
     }, 1000);
   }
