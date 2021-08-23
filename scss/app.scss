@@ -306,6 +306,7 @@ body {
 .yellowPatch {
   position: relative;
   width: 100%;
+  margin-bottom: 5px;
   #questionContainer {
     position: absolute;
     left: 50%;
@@ -346,7 +347,8 @@ body {
   position: relative;
   text-align: center;
   // margin-top: 0.5rem;
-  width: 49%;
+  width: 145px;
+  height: 35px;
   // background: transparent;
   border: 0;
   border-radius: 0;
@@ -356,9 +358,14 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 5px;
   &:disabled {
     opacity: 1;
     pointer-events: none;
+    &.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
     span {
       color: #000;
     }
@@ -378,7 +385,7 @@ body {
     // top: 50%;
     // transform: translate(-50%, -50%);
     font-family: $raleway;
-    padding: 0.8rem 1rem;
+    padding: 0.1rem 1rem;
     width: 100%;
     font-size: 0.6rem;
     font-weight: 700;
@@ -661,4 +668,8 @@ body {
 .active {
   opacity: 1;
   z-index: 11;
+}
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }

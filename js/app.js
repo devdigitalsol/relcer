@@ -30,6 +30,10 @@ window.onload = function () {
   let touchClick = new Audio("sound/click.mp3");
   let water = new Audio("sound/water.mp3");
   let wrong = new Audio("sound/wrong.mp3");
+  let clap = new Audio("sound/clap.mp3");
+  let gamesound = new Audio("sound/gamesound.mp3");
+  gamesound.volume = 0.7;
+
   tiktok.loop = true;
 
   for (let i = 0; i < imgUrls.length; i++) {
@@ -73,7 +77,7 @@ window.onload = function () {
     {
       id: 1,
       question: "______ in Relcer helps in faster elimination of Gas.",
-      option: ["Simethicone", "Deglycyrrhizinated Liquorice"],
+      option: ["Simethicone", "Deglycyrrhizinated Liquorice", "", ""],
       correct: "Simethicone",
     },
     {
@@ -97,7 +101,7 @@ window.onload = function () {
       id: 4,
       question:
         "Relcer ensures – Rapid Relief, Reflux prevention and Rebuilds lining.",
-      option: ["True", "False"],
+      option: ["True", "False", "", ""],
       correct: "True",
     },
   ];
@@ -144,6 +148,7 @@ window.onload = function () {
   }
 
   function startQuiz() {
+    gamesound.play();
     mytimer();
     let newQuestion;
     function quiz() {
@@ -162,12 +167,23 @@ window.onload = function () {
           );
         });
         quizOptions.innerHTML = newOptions.join("");
+        document.querySelectorAll(".option").forEach((blank) => {
+          if (blank.children[0].innerHTML === "") {
+            blank.classList.add("hide");
+          }
+        });
       } else {
         console.log("game over");
         finish();
       }
+
       document.querySelectorAll(".option").forEach((item) => {
         item.addEventListener("click", () => {
+          document.querySelectorAll(".option").forEach((blank) => {
+            if (blank.children[0].innerHTML === "") {
+              blank.classList.add("hide");
+            }
+          });
           document.querySelectorAll(".option").forEach((elem) => {
             elem.disabled = true;
             if (
@@ -235,6 +251,7 @@ window.onload = function () {
   }
   function finish() {
     tiktok.pause();
+    clap.play();
     clearInterval(timer);
     document.querySelector(".revealBlock").classList.add("show");
     screen2.classList.remove("active");
