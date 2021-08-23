@@ -205,6 +205,14 @@ body {
   position: relative;
   margin: 0 auto;
   transform: scale(1.1);
+  .gifScreen {
+    width: 100%;
+    display: block;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
   .innerBgContent {
     position: absolute;
     margin: 0 auto;
@@ -213,7 +221,7 @@ body {
     top: 13%;
     width: calc(100% - 48px);
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 20px;
     img.innerBg {
       width: 100%;
       display: block;
@@ -236,11 +244,12 @@ body {
   position: absolute;
   left: -60px;
   z-index: 1;
+  top: 0;
 }
 .cover {
   position: absolute;
   left: 155px;
-  top: 63px;
+  top: 54px;
   &.active {
     animation: coverRemove 0.8s forwards;
     transform-origin: 11px center;
@@ -532,5 +541,9 @@ body {
   100% {
     opacity: 0;
     transform: translate(88px, 8px);
+  }
+}
+.initialStage {
+  .active {
   }
 }

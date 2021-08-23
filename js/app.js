@@ -133,16 +133,27 @@ function startQuiz() {
 function checkCorrect() {
   if (correct) {
     cover.classList.add("active");
+
     if (currentQuestion === 1) {
-      document.querySelector(".tab1").classList.add("remove");
+      document
+        .querySelector(".initialScreen")
+        .setAttribute("src", `images/gif-screens/correct1.gif`);
     } else if (currentQuestion === 2) {
-      document.querySelector(".tab2").classList.add("remove");
+      document
+        .querySelector(".initialScreen")
+        .setAttribute("src", `images/gif-screens/correct2.gif`);
     } else if (currentQuestion === 3) {
-      document.querySelector(".tab3").classList.add("remove");
+      document
+        .querySelector(".initialScreen")
+        .setAttribute("src", `images/gif-screens/correct3.gif`);
     } else if (currentQuestion === 4) {
-      document.querySelector(".tab4").classList.add("remove");
+      document
+        .querySelector(".initialScreen")
+        .setAttribute("src", `images/gif-screens/correct4.gif`);
     } else if (currentQuestion === 5) {
-      document.querySelector(".tab5").classList.add("remove");
+      document
+        .querySelector(".initialScreen")
+        .setAttribute("src", `images/gif-screens/correct5.gif`);
     }
     // alert();
   }
