@@ -32,7 +32,7 @@ window.onload = function () {
   let wrong = new Audio("sound/wrong.mp3");
   let clap = new Audio("sound/clap.mp3");
   let gamesound = new Audio("sound/gamesound.mp3");
-  gamesound.volume = 0.7;
+  gamesound.volume = 0.5;
 
   tiktok.loop = true;
 
@@ -53,6 +53,8 @@ window.onload = function () {
   const screen1 = document.querySelector(".screen-1");
   const screen2 = document.querySelector(".screen-2");
   const screen3 = document.querySelector(".screen-3");
+  const ok = document.querySelector(".ok");
+  const timeup = document.querySelector(".timeup");
   const cover = document.querySelector(".cover");
   let timebgpos = 0;
   // const quiz = document.querySelector(".quiz");
@@ -132,7 +134,7 @@ window.onload = function () {
     tiktok.play();
     let count = 60;
     let sec = 0;
-    document.querySelector(".revealBlock").classList.remove("show");
+    // document.querySelector(".revealBlock").classList.remove("show");
     timer = setInterval(function () {
       sec = sec + 1;
       document.getElementById("timerCount").textContent = count--;
@@ -142,7 +144,10 @@ window.onload = function () {
           -timebgpos + "px";
       }
       if (count < 0) {
-        finish();
+        timeup.classList.add("show");
+        ok.addEventListener("click", function () {
+          finish();
+        });
       }
     }, 1000);
   }
@@ -230,30 +235,50 @@ window.onload = function () {
   function checkCorrect() {
     if (correct) {
       cover.classList.add("active");
-      console.log(currentQuestion);
-      if (currentQuestion === 0) {
+      setTimeout(() => {
+        cover.classList.add("hide");
+      }, 1500);
+      console.log(score);
+      if (score === 1) {
         gifScreen.removeChild(document.querySelector(".imgGif"));
         gifScreen.appendChild(imgs[1]).classList.add("imgGif");
-      } else if (currentQuestion === 1) {
+      } else if (score === 2) {
         gifScreen.removeChild(document.querySelector(".imgGif"));
         gifScreen.appendChild(imgs[2]).classList.add("imgGif");
-      } else if (currentQuestion === 2) {
+      } else if (score === 3) {
         gifScreen.removeChild(document.querySelector(".imgGif"));
         gifScreen.appendChild(imgs[3]).classList.add("imgGif");
-      } else if (currentQuestion === 3) {
+      } else if (score === 4) {
         gifScreen.removeChild(document.querySelector(".imgGif"));
         gifScreen.appendChild(imgs[4]).classList.add("imgGif");
       } else {
         gifScreen.removeChild(document.querySelector(".imgGif"));
         gifScreen.appendChild(imgs[5]).classList.add("imgGif");
       }
+      console.log(currentQuestion);
+      // if (currentQuestion === 0) {
+      //   gifScreen.removeChild(document.querySelector(".imgGif"));
+      //   gifScreen.appendChild(imgs[1]).classList.add("imgGif");
+      // } else if (currentQuestion === 1) {
+      //   gifScreen.removeChild(document.querySelector(".imgGif"));
+      //   gifScreen.appendChild(imgs[2]).classList.add("imgGif");
+      // } else if (currentQuestion === 2) {
+      //   gifScreen.removeChild(document.querySelector(".imgGif"));
+      //   gifScreen.appendChild(imgs[3]).classList.add("imgGif");
+      // } else if (currentQuestion === 3) {
+      //   gifScreen.removeChild(document.querySelector(".imgGif"));
+      //   gifScreen.appendChild(imgs[4]).classList.add("imgGif");
+      // } else {
+      //   gifScreen.removeChild(document.querySelector(".imgGif"));
+      //   gifScreen.appendChild(imgs[5]).classList.add("imgGif");
+      // }
     }
   }
   function finish() {
+    document.querySelector(".revealBlock").classList.add("show");
     tiktok.pause();
     clap.play();
     clearInterval(timer);
-    document.querySelector(".revealBlock").classList.add("show");
     screen2.classList.remove("active");
     screen3.classList.add("active");
   }
