@@ -149,11 +149,11 @@ window.onload = function () {
               correct = false;
             }
           }
-          // checkCorrect();
-          // setTimeout(() => {
-          //   currentQuestion = currentQuestion + 1;
-          //   quiz();
-          // }, 4000);
+          checkCorrect();
+          setTimeout(() => {
+            currentQuestion = currentQuestion + 1;
+            quiz();
+          }, 4000);
         });
       });
     }
