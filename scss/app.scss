@@ -330,10 +330,24 @@ body {
   border: 0;
   border-radius: 0;
   position: relative;
-  background: url("../images/bluePatch.png");
+  background-color: transparent;
+  background-image: url("../images/bluePatch.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  &:disabled {
+    opacity: 1;
+    pointer-events: none;
+    span {
+      color: #000;
+    }
+  }
+  &.correctAns {
+    background-image: url("../images/greenPatch.png");
+  }
+  &.wrongAns {
+    background-image: url("../images/redPatch.png");
+  }
   &:last-child {
     margin: 0 auto 0 auto;
   }
