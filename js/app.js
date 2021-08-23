@@ -18,12 +18,12 @@ window.onload = function () {
   }
   let imgs = [];
   let imgUrls = [
-    "images/gif-screens/initial-stage.gif",
-    "images/gif-screens/correct1.gif",
-    "images/gif-screens/correct2.gif",
-    "images/gif-screens/correct3.gif",
-    "images/gif-screens/correct4.gif",
-    "images/gif-screens/correct5.gif",
+    "images/gif-screens/initial-stage.gif?" + Math.random(),
+    "images/gif-screens/correct1.gif?" + Math.random(),
+    "images/gif-screens/correct2.gif?" + Math.random(),
+    "images/gif-screens/correct3.gif?" + Math.random(),
+    "images/gif-screens/correct4.gif?" + Math.random(),
+    "images/gif-screens/correct5.gif?" + Math.random(),
   ];
 
   let tiktok = new Audio("sound/tiktok.mp3");
@@ -36,6 +36,7 @@ window.onload = function () {
     imgs.push(new Image());
     imgs[i].src = imgUrls[i];
   }
+  console.log(imgs);
 
   const replaybtn = document.getElementById("replaybtn");
   replaybtn.addEventListener("click", () => {
