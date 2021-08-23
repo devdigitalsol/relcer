@@ -32,7 +32,6 @@ window.onload = function () {
   let wrong = new Audio("sound/wrong.mp3");
   let clap = new Audio("sound/clap.mp3");
   let gamesound = new Audio("sound/gamesound.mp3");
-  gamesound.volume = 0.5;
 
   tiktok.loop = true;
 
@@ -145,6 +144,7 @@ window.onload = function () {
       }
       if (count < 0) {
         timeup.classList.add("show");
+        clearInterval(timer);
         ok.addEventListener("click", function () {
           finish();
         });
