@@ -9,7 +9,10 @@ window.onload = function () {
     "images/gif-screens/correct5.gif",
   ];
 
-  var tiktok = new Audio("sound/tiktok.mp3");
+  let tiktok = new Audio("sound/tiktok.mp3");
+  let touchClick = new Audio("sound/click.mp3");
+  let water = new Audio("sound/water.mp3");
+  let wrong = new Audio("sound/wrong.mp3");
   tiktok.loop = true;
 
   for (let i = 0; i < imgUrls.length; i++) {
@@ -162,14 +165,18 @@ window.onload = function () {
               mydata[currentQuestion].correct
             ) {
               score = score + 1;
-
               console.log("correct ans");
+              touchClick.play();
               scoreCount.textContent = `${score}/${mydata.length}`;
+              setTimeout(() => {
+                water.play();
+              }, 2000);
               correct = true;
             } else {
               item.classList.add("wrongAns");
 
               console.log("wrong ans");
+              wrong.play();
               scoreCount.textContent = `${score}/${mydata.length}`;
               correct = false;
             }
