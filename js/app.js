@@ -277,7 +277,9 @@ window.onload = function () {
   function finish() {
     document.querySelector(".revealBlock").classList.add("show");
     tiktok.pause();
-    clap.play();
+    if (score > 0) {
+      clap.play();
+    }
     clearInterval(timer);
     screen2.classList.remove("active");
     screen3.classList.add("active");
