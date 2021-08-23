@@ -9,7 +9,7 @@ window.onload = function () {
     "images/gif-screens/correct5.gif",
   ];
 
-  var tiktok = new Audio("sound/tiktok.wav");
+  var tiktok = new Audio("sound/tiktok.mp3");
   tiktok.loop = true;
 
   for (let i = 0; i < imgUrls.length; i++) {
