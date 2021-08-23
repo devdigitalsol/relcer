@@ -298,27 +298,41 @@ body {
 }
 .yellowPatch {
   position: relative;
-  background: url("../images/yellowPatch.png");
-  background-size: contain;
   width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  span {
-    // position: absolute;
-    // left: 50%;
-    // top: 50%;
-    // transform: translate(-50%, -50%);
+  #questionContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-family: $raleway;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem 1rem 2.5rem;
     width: 100%;
     font-size: 0.75rem;
     font-weight: 700;
     display: block;
-    text-align: center;
+    text-align: left;
   }
-  img {
+  .questionBg {
     width: 100%;
     display: block;
+  }
+  #questionCount {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-family: $raleway;
+    font-weight: 700;
+    width: 37px;
+    text-align: center;
+  }
+  .questionCount {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 37px;
   }
 }
 .option {

@@ -13,6 +13,8 @@ window.onload = function () {
     imgs.push(new Image());
     imgs[i].src = imgUrls[i];
   }
+  const questionContainer = document.querySelector("#questionContainer");
+  const questionCount = document.querySelector("#questionCount");
   const gifScreen = document.querySelector(".gifScreen");
   const loader = document.querySelector(".loader");
   const screen1 = document.querySelector(".screen-1");
@@ -105,10 +107,11 @@ window.onload = function () {
     mytimer();
     let newQuestion;
     function quiz() {
+      questionCount.innerHTML = currentQuestion + 1;
       scoreCount.textContent = `${score}/${mydata.length}`;
       if (currentQuestion <= mydata.length - 1) {
         newQuestion = mydata[currentQuestion].question;
-        yellowPatch.innerHTML = `<span>${newQuestion}</span>`;
+        questionContainer.innerHTML = `<span>${newQuestion}</span>`;
         let newOptions = [];
         mydata[currentQuestion].option.forEach((item) => {
           newOptions.push(
