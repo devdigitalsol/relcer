@@ -298,16 +298,23 @@ body {
 }
 .yellowPatch {
   position: relative;
+  background: url("../images/yellowPatch.png");
+  background-size: contain;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     font-family: $raleway;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
     width: 100%;
     font-size: 0.75rem;
     font-weight: 700;
+    display: block;
+    text-align: center;
   }
   img {
     width: 100%;
@@ -317,24 +324,31 @@ body {
 .option {
   position: relative;
   text-align: center;
-  margin-top: 0.5rem;
+  // margin-top: 0.5rem;
   width: 49%;
-  background: transparent;
+  // background: transparent;
   border: 0;
   border-radius: 0;
+  position: relative;
+  background: url("../images/bluePatch.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   &:last-child {
-    margin: 0.5rem auto 0 auto;
+    margin: 0 auto 0 auto;
   }
   span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     font-family: $raleway;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
     width: 100%;
     font-size: 0.6rem;
     font-weight: 700;
+    display: block;
+    text-align: center;
   }
   img {
     width: 100%;

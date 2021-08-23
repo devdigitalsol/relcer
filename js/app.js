@@ -93,12 +93,11 @@ function startQuiz() {
     scoreCount.textContent = `${score}/${mydata.length}`;
     if (currentQuestion <= mydata.length - 1) {
       newQuestion = mydata[currentQuestion].question;
-      yellowPatch.innerHTML = `<span>${newQuestion}</span>
-                <img src="images/yellowPatch.png" />`;
+      yellowPatch.innerHTML = `<span>${newQuestion}</span>`;
       let newOptions = [];
       mydata[currentQuestion].option.forEach((item) => {
         newOptions.push(
-          `<button class='option' data-option='${item}'><span>${item}</span><img src='images/bluePatch.png'></button>`
+          `<button class='option' data-option='${item}'><span>${item}</span></button>`
         );
       });
       quizOptions.innerHTML = newOptions.join("");
@@ -108,6 +107,9 @@ function startQuiz() {
     }
     document.querySelectorAll(".option").forEach((item) => {
       item.addEventListener("click", () => {
+        document.querySelectorAll(".option").forEach((elem) => {
+          elem.disabled = true;
+        });
         if (currentQuestion <= mydata.length - 1) {
           if (
             item.getAttribute("data-option") === mydata[currentQuestion].correct
@@ -120,11 +122,12 @@ function startQuiz() {
             console.log("wrong ans");
             scoreCount.textContent = `${score}/${mydata.length}`;
           }
-          currentQuestion = currentQuestion + 1;
-          console.log(score, currentQuestion);
-          quiz();
         }
         checkCorrect();
+        setTimeout(() => {
+          currentQuestion = currentQuestion + 1;
+          quiz();
+        }, 4000);
       });
     });
   }
@@ -133,24 +136,23 @@ function startQuiz() {
 function checkCorrect() {
   if (correct) {
     cover.classList.add("active");
-
-    if (currentQuestion === 1) {
+    if (currentQuestion === 0) {
       document
         .querySelector(".initialScreen")
         .setAttribute("src", `images/gif-screens/correct1.gif`);
-    } else if (currentQuestion === 2) {
+    } else if (currentQuestion === 1) {
       document
         .querySelector(".initialScreen")
         .setAttribute("src", `images/gif-screens/correct2.gif`);
-    } else if (currentQuestion === 3) {
+    } else if (currentQuestion === 2) {
       document
         .querySelector(".initialScreen")
         .setAttribute("src", `images/gif-screens/correct3.gif`);
-    } else if (currentQuestion === 4) {
+    } else if (currentQuestion === 3) {
       document
         .querySelector(".initialScreen")
         .setAttribute("src", `images/gif-screens/correct4.gif`);
-    } else if (currentQuestion === 5) {
+    } else if (currentQuestion === 4) {
       document
         .querySelector(".initialScreen")
         .setAttribute("src", `images/gif-screens/correct5.gif`);
