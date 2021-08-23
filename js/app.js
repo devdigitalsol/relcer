@@ -16,17 +16,22 @@ window.onload = function () {
     imgs.push(new Image());
     imgs[i].src = imgUrls[i];
   }
+  const replaybtn = document.getElementById("replaybtn");
+  replaybtn.addEventListener("click", () => {
+    location.reload();
+  });
   const questionContainer = document.querySelector("#questionContainer");
   const questionCount = document.querySelector("#questionCount");
   const gifScreen = document.querySelector(".gifScreen");
   const loader = document.querySelector(".loader");
   const screen1 = document.querySelector(".screen-1");
   const screen2 = document.querySelector(".screen-2");
+  const screen3 = document.querySelector(".screen-3");
   const cover = document.querySelector(".cover");
   let timebgpos = 0;
   // const quiz = document.querySelector(".quiz");
   const quizOptions = document.querySelector(".quizOptions");
-  const scoreCount = document.querySelector("#scoreCount");
+  const scoreCount = document.querySelectorAll(".scoreCount");
   const playBtn = document.getElementById("playBtn");
   let currentQuestion = 0;
   let score = 0;
@@ -97,12 +102,12 @@ window.onload = function () {
       screen2.classList.add("active");
     }, 200);
   });
-  const yellowPatch = document.getElementById("yellowPatch");
 
   function mytimer() {
     tiktok.play();
     let count = 60;
     let sec = 0;
+    document.querySelector(".revealBlock").classList.remove("show");
     timer = setInterval(function () {
       sec = sec + 1;
       document.getElementById("timerCount").textContent = count--;
@@ -111,7 +116,9 @@ window.onload = function () {
         document.getElementById("timerCount").style.backgroundPositionX =
           -timebgpos + "px";
       }
-      if (count < 0) clearInterval(timer);
+      if (count < 0) {
+        finish();
+      }
     }, 1000);
   }
 
@@ -119,8 +126,11 @@ window.onload = function () {
     mytimer();
     let newQuestion;
     function quiz() {
+      scoreCount.forEach((sc) => {
+        sc.textContent = `${score}/${mydata.length}`;
+      });
       questionCount.innerHTML = currentQuestion + 1;
-      scoreCount.textContent = `${score}/${mydata.length}`;
+
       if (currentQuestion <= mydata.length - 1) {
         newQuestion = mydata[currentQuestion].question;
         questionContainer.innerHTML = `<span>${newQuestion}</span>`;
@@ -133,7 +143,7 @@ window.onload = function () {
         quizOptions.innerHTML = newOptions.join("");
       } else {
         console.log("game over");
-        clearInterval(timer);
+        finish();
       }
       document.querySelectorAll(".option").forEach((item) => {
         item.addEventListener("click", () => {
@@ -175,6 +185,7 @@ window.onload = function () {
     console.log(currentQuestion);
     quiz();
   }
+
   function checkCorrect() {
     if (correct) {
       cover.classList.add("active");
@@ -196,5 +207,12 @@ window.onload = function () {
         gifScreen.appendChild(imgs[5]).classList.add("imgGif");
       }
     }
+  }
+  function finish() {
+    tiktok.pause();
+    clearInterval(timer);
+    document.querySelector(".revealBlock").classList.add("show");
+    screen2.classList.remove("active");
+    screen3.classList.add("active");
   }
 };

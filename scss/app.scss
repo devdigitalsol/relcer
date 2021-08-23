@@ -15,10 +15,19 @@ body {
 }
 
 body {
-  background: url("../images/bg.jpg") top center no-repeat;
+  background: #fff;
   background-size: cover;
   font-size: 16px;
   line-height: 1.25;
+}
+.wrapper {
+  background: url("../images/bg.jpg") top center no-repeat;
+  background-size: cover;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  min-height: 100vh;
 }
 .loader {
   position: fixed;
@@ -129,9 +138,7 @@ body {
   opacity: 0;
   transition: all 1s ease-in-out;
 }
-.active {
-  opacity: 1;
-}
+
 .playBtn {
   background: url("../images/greenBtn.png") no-repeat;
   background-size: cover;
@@ -405,7 +412,7 @@ body {
   z-index: 1;
   span {
     position: absolute;
-    font-family: $raleway;
+    font-family: sans-serif;
     text-align: center;
     color: $blue;
     font-weight: 900;
@@ -596,4 +603,62 @@ body {
 .initialStage {
   .active {
   }
+}
+.screen-3 {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  padding: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: url("../images/starbg.png") no-repeat center top,
+    url("../images/cloudbg.png") no-repeat center bottom;
+  background-size: cover;
+  .finalLogo {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+  .finalBg {
+    background: url("../images/finalBg.png") no-repeat center top;
+    width: 320px;
+    height: 411px;
+    background-size: cover;
+    margin: 0 auto;
+    position: relative;
+  }
+  .finalScore {
+    span {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: sans-serif;
+      letter-spacing: 0.5rem;
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .replaybtn {
+    width: 108px;
+    height: 49px;
+    background: url("../images/replaybtn.png");
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+  }
+}
+.active {
+  opacity: 1;
+  z-index: 11;
 }

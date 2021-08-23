@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relcer</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,6 +17,7 @@
     <script src="js/app.js?v111"></script>
   </head>
   <body>
+    <div class="wrapper">
     <div class="loader">
       <img src="images/iceLogo1.png?v111" class="iceLogo1" />
     </div>
@@ -56,7 +59,7 @@
           <img src="images/timerBg.png" />
         </div>
         <div class="scoreContainer">
-          <span id="scoreCount">0/5</span>
+          <span class="scoreCount">0/5</span>
           <img src="images/scoreBg.png" />
         </div>
         <div class="innerBgContent">
@@ -82,7 +85,15 @@
         <img src="images/redBg2.png?v111" class="redBg2" />
       </div>
     </div>
-    <div class="revealBlock"></div>
     
+    <div class="screen-3">
+      <img src="images/finalLogo.png" class="finalLogo" />
+      <div class="finalBg">
+        <div class="finalScore"><span class="scoreCount">0/5</span></div>
+        <div class="replaybtn" id="replaybtn"></div>
+      </div>
+    </div>
+    <div class="revealBlock"></div>  
+  </div>
   </body>
 </html>
